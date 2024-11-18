@@ -13,6 +13,7 @@ export type ButtonProps = {
   borderRadius: number;
   color: string;
   border?: string;
+  bold?: number;
 } & TouchableOpacityProps;
 
 export const Button = ({
@@ -25,7 +26,8 @@ export const Button = ({
   onPress,
   title,
   color,
-  border
+  border,
+  bold
 }: ButtonProps) => {
   const handlePress = () => {
     if (onPress) {
@@ -38,13 +40,14 @@ export const Button = ({
       onPress={handlePress}
       backgroundColor={backgroundColor}
       width={width}
-      fontSize={fontSize}
+    
       height={height}
       borderRadius={borderRadius}
       isActive={isActive}
       border={border}
+    
     >
-      <ButtonText color={color}>{title}</ButtonText>
+      <ButtonText color={color}  fontSize={fontSize} bold={bold}>{title}</ButtonText>
     </ButtonStyled>
   );
 };

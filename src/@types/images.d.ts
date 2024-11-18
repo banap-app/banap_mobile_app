@@ -2,8 +2,9 @@
 
 declare module '@assets' {
     const Images: {
-        'Linhas': any;
-        // Adicione mais imagens conforme necessário
+        'Lines': any;
+        'productor': any;
+        'Enginner': any;
     };
 
     export type ImageKeys = keyof typeof Images;

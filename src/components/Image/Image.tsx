@@ -1,21 +1,29 @@
 import React from 'react';
 import StyledImage from './index';
+import { ImageKeys } from '@assets';
+import Images from 'src/@types/imageMap';
 
 export type ImagePropsStyled = {
     position?: string;
-    sourceImage: string;
+    zIndex?: number;
+    sourceImage: ImageKeys;
     width?: number | string;
-    heigth?: number | string;
+    height?: number | string;
+    positionLocations?: [number?, number?, number?, number?]
 }
 
-const Images = {
-    'Linhas': require('../../../assets/Lines.png')
-}
 
-const ImageStyled: React.FC<ImagePropsStyled> = ({ sourceImage, position, width, heigth }: ImagePropsStyled) => {
-    const imageSource = Images['Linhas']
+const ImageStyled: React.FC<ImagePropsStyled> = ({ sourceImage, position , width, height, zIndex, positionLocations = []}: ImagePropsStyled) => {
+    const imageSource = Images[sourceImage];
+    const [top, bottom, left, right] = positionLocations
+
+    if (!imageSource) {
+        console.error(`Image with key "${sourceImage}" not found in imageMap.`);
+        return null; // Ou você pode retornar um placeholder ou uma imagem padrão
+    }
+
     return (
-        <StyledImage source={imageSource} position={position} width={width} heigth={heigth} />
+        <StyledImage source={imageSource} width={width} topPosition={top} leftPosition={left} rightPosition={right} bottomPosition={bottom} zIndex={zIndex} height={height} position={position} />
     );
 }
 

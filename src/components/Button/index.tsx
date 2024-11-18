@@ -12,11 +12,13 @@ const ButtonStyled = styled.TouchableOpacity<ButtonProps>`
   opacity: ${({isActive}: ButtonProps) => (isActive ? 1 : 0.5)};
   align-items: center;
   justify-content:center;
+  
   border: ${({border}: ButtonProps) => border ? border : 'none'}
 `;
 
 const ButtonText = styled(Text)<ButtonProps>`
   color: ${({ color }: ButtonProps) => color};
+  font-weight: ${({bold}: ButtonProps) => bold? bold : "auto"};
   font-size: ${({ fontSize }: ButtonProps) => (fontSize ? `${fontSize}px` : "16px")};
 `;
 

@@ -6,20 +6,20 @@ import ContainerComponent from "src/components/Container/Container";
 import FormInput from "src/components/FormInput/FormInput";
 import SubtitleText from "src/components/SubTitleText/SubTitleText";
 import { TitleText } from "src/components/TitleText/TitleText";
+import { navigateToPage } from "src/utils/navigateToPage";
 
 const ProductorRegister: React.FC = () => {
   return (
     <React.Fragment>
-      <AppBar />
-      <ContainerComponent display="flex" width="100%" height="90%">
+      <ContainerComponent display="flex" alignItems="center" justifyContent="start"  width="100%" height="80%">
         <ContainerComponent
-          width="90%"
-          padding={[0, 0, 0, 25]}
+          width="100%"
+          height="auto"
+          padding={[0, 0, 0, 5]}
           display="flex"
-          backgroundColor=""
           alignItems="start"
-          justifyContent="start"
-          gap={5}
+          justifyContent=""
+          gap={5.5}
         >
           <TitleText
             color="black"
@@ -36,7 +36,7 @@ const ProductorRegister: React.FC = () => {
           />
 
           <SubtitleText
-            align="justify"
+            align="left"
             color="black"
             bold={700}
             letterSpacing={1}
@@ -51,7 +51,7 @@ const ProductorRegister: React.FC = () => {
             color="black"
             bold={300}
             letterSpacing={1}
-            lineHeight={20}
+            lineHeight={18}
             size={16.5}
           >
             Precisamos das suas informações, nos diga seu...
@@ -59,14 +59,15 @@ const ProductorRegister: React.FC = () => {
         </ContainerComponent>
 
         <ContainerComponent
-          width="90%"
-          height="40%"
-          padding={[30, 0, 0, 25]}
+          width="100%"
+          height="55%"
           display="flex"
-          backgroundColor=""
+          flexDirection="column"
+          padding={[0, 5, 0, 5]}
+         
           alignItems="start"
-          justifyContent="space-between"
-          gap={25}
+          justifyContent="space-evenly"
+          
         >
           <FormInput
             placeholder="Exemplo"
@@ -90,10 +91,11 @@ const ProductorRegister: React.FC = () => {
             inputHeight="auto"
           />
         </ContainerComponent>
-        <ContainerComponent display="flex" alignItems="center" justifyContent="center" height="40%">
+
+        <ContainerComponent display="flex" alignItems="center" justifyContent="center" height="37.5%">
           <Button
             backgroundColor="green"
-            width={270}
+            width={265}
             borderRadius={12}
             fontSize={17}
             height={45}
@@ -101,6 +103,7 @@ const ProductorRegister: React.FC = () => {
             title="Cadastrar"
             color="white"
             bold={700}
+            onPress={navigateToPage("LoginPage")}
           />
         </ContainerComponent>
       </ContainerComponent>

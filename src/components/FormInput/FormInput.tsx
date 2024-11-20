@@ -17,6 +17,7 @@ export type FormInputProps = {
   lineHeight?: number;
   titleAlign?: "left" | "center" | "right" | "justify" | undefined;
   titleSize?: number;
+  gap?: number;
 };
 
 const FormInput: React.FC<FormInputProps> = ({
@@ -28,15 +29,16 @@ const FormInput: React.FC<FormInputProps> = ({
   lineWidth = '100%',
   lineHeight = 1,
   titleAlign,
-  titleSize = 16
+  titleSize = 16,
+  gap = 12
 }: FormInputProps) => {
   return (
     <ContainerComponent
       display="flex"
       flexDirection="column"
       alignItems="start"
-      justifyContent="center"
-      gap={12}
+      justifyContent="start"
+      gap={gap}
     >
       <TitleText text={title} align={titleAlign} size={titleSize} />
       <StyledTextInput

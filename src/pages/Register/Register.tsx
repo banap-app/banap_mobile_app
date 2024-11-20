@@ -12,18 +12,18 @@ import ImageStyled from "src/components/Image/Image";
 export const Register: React.FC = () => {
   return (
     <React.Fragment>
-      <AppBar />
       <ContainerComponent
         display="flex"
         alignItems="start"
         justifyContent="start"
-        height="90%"
+        height="80%"
         width="100%"
       >
         <ContainerComponent
-          width="90%"
-          padding={[0, 0, 0, 25]}
+          width="100%"
+          padding={[0, 0, 0, 5]}
           display="flex"
+          height="auto"
           backgroundColor=""
           alignItems="start"
           justifyContent="start"
@@ -79,8 +79,8 @@ export const Register: React.FC = () => {
           display="flex"
           alignItems="center"
           justifyContent="space-evenly"
-          backgroundColor=""
-          height="55%"
+        
+          height="70%"
         >
           <ContainerComponent
             display="flex"
@@ -90,9 +90,10 @@ export const Register: React.FC = () => {
           >
             <ImageStyled
               sourceImage="productor"
-          
-              positionLocations={[-120, undefined, undefined, undefined]}
+              positionLocations={[-120, undefined, 15, undefined]}
+              pointerEvents="auto"
               position="absolute"
+              objectFit="contain"
               width={100}
               height={200}
               zIndex={1}
@@ -104,7 +105,7 @@ export const Register: React.FC = () => {
               height={120}
               width={120}
               isActive={true}
-              onPress={navigateToPage('ProductorRegister')}
+              onPress={navigateToPage("ProductorRegister")}
             />
           </ContainerComponent>
 
@@ -118,16 +119,18 @@ export const Register: React.FC = () => {
             ou
           </SubtitleText>
 
-          <ContainerComponent 
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-          width="auto"
+          <ContainerComponent
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+            width="auto"
+            height="auto"
           >
-          <ImageStyled
+            <ImageStyled
               sourceImage="Enginner"
               positionLocations={[-120, undefined, -70, undefined]}
               position="absolute"
+              objectFit="contain"
               width={200}
               height={200}
               zIndex={1}
@@ -139,7 +142,7 @@ export const Register: React.FC = () => {
               height={120}
               width={120}
               isActive={true}
-              onPress={navigateToPage('EnginnerRegister')}
+              onPress={navigateToPage("EnginnerRegister")}
             />
           </ContainerComponent>
         </ContainerComponent>

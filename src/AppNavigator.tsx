@@ -14,11 +14,11 @@ const AppNavigator = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home" component={withContainer(Login)} options={{ headerShown: false }} />
-        <Stack.Screen name="Register" component={withContainer(Register)} options={{ headerShown: false }} />
-        <Stack.Screen name="ProductorRegister" component={withContainer(ProductorRegister)} options={{ headerShown: false }} />
-        <Stack.Screen name="EnginnerRegister" component={withContainer(EnginnerRegister)} options={{ headerShown: false }} />
-        <Stack.Screen name="LoginPage" component={withContainer(LoginPage)} options={{ headerShown: false }} />
+        <Stack.Screen name="Home" component={withContainer(Login, {appBarShow: false, typeOfAppBar: "userAppBar"})} options={{ headerShown: false }} />
+        <Stack.Screen name="Register" component={withContainer(Register, {appBarShow: true, typeOfAppBar: "userAppBar"})} options={{ headerShown: false }} />
+        <Stack.Screen name="ProductorRegister" component={withContainer(ProductorRegister, {appBarShow: true, typeOfAppBar: "userAppBar"})} options={{ headerShown: false }} />
+        <Stack.Screen name="EnginnerRegister" component={withContainer(EnginnerRegister, {appBarShow: true, typeOfAppBar: "userAppBar"})} options={{ headerShown: false }} />
+        <Stack.Screen name="LoginPage" component={withContainer(LoginPage, {appBarShow: false, typeOfAppBar: "userAppBar"})} options={{ headerShown: false }} />
         {/* <Stack.Screen name="Details" component={withContainer(DetailsScreen)} /> */}
       </Stack.Navigator>
     </NavigationContainer>

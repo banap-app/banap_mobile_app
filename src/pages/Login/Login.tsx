@@ -14,9 +14,11 @@ const Login: React.FC = () => {
         <ContainerComponent
           display="flex"
           alignItems="center"
-          justifyContent="space-around"
-          height='45%'
-          width="80%"
+          justifyContent="center"
+          backgroundColor=""
+          flexAll={0}
+          height='70%'
+          width="100%"
 
         >
         
@@ -35,9 +37,9 @@ const Login: React.FC = () => {
 
         <ContainerComponent
           display="flex"
-          height={110}
+          height="20%"
           width="100%"
-          justifyContent="space-between"
+          justifyContent="space-evenly"
           alignItems="center"
         >
          <Button backgroundColor="green" title="Cadastrar-se" borderRadius={10} color="white" height={41.5} onPress={navigateToPage('Register')} width={250.5} isActive={true}/>   

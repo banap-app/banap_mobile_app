@@ -1,6 +1,7 @@
 import styled from "styled-components/native";
 import { ContainerProps } from "./Container";
 import { Omit } from "utility-types";
+import { View } from "react-native";
 
 // Omitimos 'children' e qualquer outra prop não necessária para o estilo
 type ContainerPropsStyled = Omit<ContainerProps, 'children' | "margin" | 'padding'> & {
@@ -14,8 +15,9 @@ type ContainerPropsStyled = Omit<ContainerProps, 'children' | "margin" | 'paddin
   paddingLeft?: number;
 };
 
-const ContainerStyled = styled.View<ContainerPropsStyled>`
+const ContainerStyled = styled(View)<ContainerPropsStyled>`
   display: ${({ display }: ContainerPropsStyled) => display || 'flex'};
+  flex:${({ flexAll }: ContainerPropsStyled) => flexAll || 'none'};
   justify-content: ${({ justifyContent }: ContainerPropsStyled) => justifyContent || 'flex-start'};
   align-items: ${({ alignItems }: ContainerPropsStyled) => alignItems || 'flex-start'};
   background-color: ${({ backgroundColor }: ContainerPropsStyled) => backgroundColor || 'transparent'};
@@ -28,7 +30,7 @@ const ContainerStyled = styled.View<ContainerPropsStyled>`
   margin-right: ${({ marginRight }: ContainerPropsStyled) => (marginRight !== undefined ? `${marginRight}px` : '0px')};
   margin-bottom: ${({ marginBottom }: ContainerPropsStyled) => (marginBottom !== undefined ? `${marginBottom}px` : '0px')};
   margin-left: ${({ marginLeft }: ContainerPropsStyled) => (marginLeft !== undefined ? `${marginLeft}px` : '0px')};
-
+  position:relative;
   /* Aplicando paddings */
   padding-top: ${({ paddingTop }: ContainerPropsStyled) => (paddingTop !== undefined ? `${paddingTop}px` : '0px')};
   padding-right: ${({ paddingRight }: ContainerPropsStyled) => (paddingRight !== undefined ? `${paddingRight}px` : '0px')};

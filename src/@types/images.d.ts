@@ -6,6 +6,7 @@ declare module '@assets' {
         'productor': any;
         'Enginner': any;
         'Banap': any;
+        "LinesAppBar": any;
     };
 
     export type ImageKeys = keyof typeof Images;

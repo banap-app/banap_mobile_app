@@ -51,7 +51,6 @@ const EnginnerRegister: React.FC = () => {
 
   return (
     <React.Fragment>
-      <AppBar />
       <ContainerComponent display="flex" width="100%" height="90%">
         <ContainerComponent
           width="90%"

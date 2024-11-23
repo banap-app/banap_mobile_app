@@ -1,5 +1,5 @@
 export type AppBarTypes = {
-    typeOfAppBar: "userAppBar" | "DefaultAppBar"
+    typeOfAppBar: "userAppBar" | "defaultAppBar"
   }
 
 export type AppBarProps = {

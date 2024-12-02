@@ -9,6 +9,7 @@ import EnginnerRegister from './pages/EnginnerRegister';
 import { LoginPage } from './pages/LoginPage';
 import { InitialProductorPage } from './pages/ProductorPages/InitialProductorPage';
 import { RegisterProperty } from './pages/ProductorPages/RegisterProperty';
+import FieldProductorRegister from './pages/ProductorPages/FieldProductorRegister';
 
 const Stack = createStackNavigator();
 
@@ -23,7 +24,8 @@ const AppNavigator = () => {
         <Stack.Screen name="LoginPage" component={withContainer(LoginPage, {appBarShow: false, typeOfAppBar: "defaultAppBar"})} options={{ headerShown: false }} />
         <Stack.Screen name="InitialProductorPage" component={withContainer(InitialProductorPage, {appBarShow: true, typeOfAppBar: "userAppBar"})} options={{ headerShown: false }} />
         <Stack.Screen name="RegisterProperty" component={withContainer(RegisterProperty,{appBarShow: true, typeOfAppBar: "defaultAppBar"} )} options={{ headerShown: false }}/>
-        {/* <Stack.Screen name="Details" component={withContainer(DetailsScreen)} /> */}
+        <Stack.Screen name="FieldProductorRegister" component={withContainer(FieldProductorRegister,{appBarShow: true, typeOfAppBar: "defaultAppBar"} )} options={{ headerShown: false }}/>
+
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -3,7 +3,6 @@ import { ContainerProps } from "./Container";
 import { Omit } from "utility-types";
 import { View } from "react-native";
 
-// Omitimos 'children' e qualquer outra prop não necessária para o estilo
 type ContainerPropsStyled = Omit<ContainerProps, 'children' | "margin" | 'padding'> & {
   marginTop?: number;
   marginRight?: number;
@@ -13,6 +12,7 @@ type ContainerPropsStyled = Omit<ContainerProps, 'children' | "margin" | 'paddin
   paddingRight?: number;
   paddingBottom?: number;
   paddingLeft?: number;
+  borderRadius?: number;
 };
 
 const ContainerStyled = styled(View)<ContainerPropsStyled>`
@@ -25,6 +25,8 @@ const ContainerStyled = styled(View)<ContainerPropsStyled>`
   width: ${({ width }: ContainerPropsStyled) => (typeof width === 'number' ? `${width}px` : width || '100%')};
   height: ${({ height }: ContainerPropsStyled) => (typeof height === 'number' ? `${height}px` : height || 'auto')};
   flex-direction: ${({ flexDirection }: ContainerPropsStyled) => flexDirection || 'column'};
+  flex-wrap: ${({ flexWrap }: ContainerPropsStyled) => flexWrap || 'nowrap'};
+  border-radius: ${({ borderRadius }: ContainerPropsStyled) => `${borderRadius}px` || '0px'};
   /* Aplicando margens */
   margin-top: ${({ marginTop }: ContainerPropsStyled) => (marginTop !== undefined ? `${marginTop}px` : '0px')};
   margin-right: ${({ marginRight }: ContainerPropsStyled) => (marginRight !== undefined ? `${marginRight}px` : '0px')};
@@ -36,6 +38,10 @@ const ContainerStyled = styled(View)<ContainerPropsStyled>`
   padding-right: ${({ paddingRight }: ContainerPropsStyled) => (paddingRight !== undefined ? `${paddingRight}px` : '0px')};
   padding-bottom: ${({ paddingBottom }: ContainerPropsStyled) => (paddingBottom !== undefined ? `${paddingBottom}px` : '0px')};
   padding-left: ${({ paddingLeft }: ContainerPropsStyled) => (paddingLeft !== undefined ? `${paddingLeft}px` : '0px')};
+ border-color:  ${({ borderColor }: ContainerPropsStyled) => borderColor || 'none'};
+ border-width:  ${({ borderWidth }: ContainerPropsStyled) => borderWidth || '0'};
+ border-style:  ${({ borderStyle }: ContainerPropsStyled) => borderStyle || 'none'};
+ overflow: ${({ overflow }: ContainerPropsStyled) => overflow || 'auto'};
 `;
 
 export default ContainerStyled;

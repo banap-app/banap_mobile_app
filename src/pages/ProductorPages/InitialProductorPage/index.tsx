@@ -1,32 +1,33 @@
 import React from "react";
 import { Button } from "src/components/Button/Button";
 import ContainerComponent from "src/components/Container/Container";
-import SubtitleText from "src/components/SubTitleText/SubTitleText";
+import HomeCards from "src/components/HomeCards";
+import Properties from "src/components/Properties/Properties";
 import { TitleText } from "src/components/TitleText/TitleText";
-import { navigateToPage } from "src/utils/navigateToPage";
+import { useNavigateToPage } from "src/utils/navigateToPage";
 
 export const InitialProductorPage: React.FC = () => {
-  const hasProperty = false;
+  const navigateToPage = useNavigateToPage();
+  const hasProperty = true;
+  const data = [
+    { id: "1", name: "Item 1", imageUrl: "https://via.placeholder.com/150" },
+    { id: "2", name: "Item 2", imageUrl: "https://via.placeholder.com/150" },
+    { id: "3", name: "Item 3", imageUrl: "https://via.placeholder.com/150" },
+  ];
 
   return (
     <React.Fragment>
       <ContainerComponent
         display="flex"
-        height="75.5%"
+        height="70.5%"
         alignItems="center"
-        justifyContent="center"
+        justifyContent="space-evenly"
       >
         {hasProperty ? (
-          <SubtitleText
-            size={10}
-            bold={500}
-            align="center"
-            color="green"
-            letterSpacing={1}
-            lineHeight={15}
-          >
-            a
-          </SubtitleText>
+          <React.Fragment>
+          <HomeCards />
+         <Properties properties={data}/>
+         </React.Fragment>
         ) : (
           <ContainerComponent
             display="flex"
@@ -36,7 +37,6 @@ export const InitialProductorPage: React.FC = () => {
           >
             <TitleText
               size={14}
-              bold={600}
               letterSpacing={1}
               text="Ainda não há uma
 propriedade cadastrada!"
@@ -54,7 +54,7 @@ propriedade cadastrada!"
               isActive={true}
               height={50}
               width={200}
-              onPress={navigateToPage("RegisterProperty")}
+              onPress={()=>navigateToPage("RegisterProperty")}
             />
           </ContainerComponent>
         )}

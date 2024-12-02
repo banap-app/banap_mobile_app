@@ -6,9 +6,10 @@ import FormInput from "src/components/FormInput/FormInput";
 import ImageStyled from "src/components/Image/Image";
 import SubtitleText from "src/components/SubTitleText/SubTitleText";
 import { TitleText } from "src/components/TitleText/TitleText";
-import { navigateToPage } from "src/utils/navigateToPage";
+import { useNavigateToPage } from "src/utils/navigateToPage";
 
 export const LoginPage: React.FC = () => {
+  const navigateToPage = useNavigateToPage()
   return (
     <React.Fragment>
       <ContainerComponent
@@ -28,7 +29,7 @@ export const LoginPage: React.FC = () => {
           <TitleText
             text="Entre com a sua conta!"
             breakAfter="sua"
-            size={20}
+            size={19.5}
             lineBreak={true}
           />
         </ContainerComponent>
@@ -61,10 +62,10 @@ export const LoginPage: React.FC = () => {
           />
           <ContainerComponent alignItems="right">
 
-          <SubtitleText align="right" bold={500} color="green" size={14} letterSpacing={1} lineHeight={14}>Esqueceu a sua senha?</SubtitleText>
+          <SubtitleText align="right" fontFamily="Montserrat-Medium" color="green" size={12} letterSpacing={1} lineHeight={14}>Esqueceu a sua senha?</SubtitleText>
           </ContainerComponent>
-          <Button title="Entrar" bold={800} backgroundColor="green" onPress={navigateToPage("InitialProductorPage")} borderRadius={10} color="white" isActive={true} width={255} height={45}/>
-          <TitleText align="center" bold={500} color="black" size={14} letterSpacing={1} highlightTexts={[{ text: "Crie uma.", color: "green", bold: 600 }]} text="Não possui uma conta? Crie uma." />
+          <Button title="Entrar" align="center" fontFamily="Montserrat-Medium" alignItems="center" display="flex" backgroundColor="green" onPress={()=>navigateToPage("InitialProductorPage")} borderRadius={10} color="white" isActive={true} width={255} height={45}/>
+          <TitleText align="center" color="black" fontFamily="Montserrat-Regular" size={12.65} letterSpacing={1} highlightTexts={[{ text: "Crie uma.", color: "green", fontFamily:"Montserrat-Medium" }]} text="Não possui uma conta? Crie uma." />
         </ContainerComponent>
       </ContainerComponent>
     </React.Fragment>

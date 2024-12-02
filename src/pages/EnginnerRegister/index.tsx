@@ -6,9 +6,10 @@ import ContainerComponent from "src/components/Container/Container";
 import FormInput from "src/components/FormInput/FormInput";
 import SubtitleText from "src/components/SubTitleText/SubTitleText";
 import { TitleText } from "src/components/TitleText/TitleText";
-import { navigateToPage } from "src/utils/navigateToPage";
+import { useNavigateToPage } from "src/utils/navigateToPage";
 
 const EnginnerRegister: React.FC = () => {
+  const navigateToPage = useNavigateToPage();
 
   const handleSubmit = () => {
     // Implement your form submission logic here
@@ -20,7 +21,7 @@ const EnginnerRegister: React.FC = () => {
       title: {
         text: "Precisamos dos seus documentos...",
         wordBreak: "dos",
-        highlightTexts: { text: "documentos...", color: "green", bold: 900 },
+        highlightTexts: { text: "documentos...", color: "green", fontFamily: "Montserrat-Regular" },
       },
       subtitle1: "Agora falta pouco!",
       subtitle2: "Só precisamos de uma confirmação de seus dados...",
@@ -36,7 +37,7 @@ const EnginnerRegister: React.FC = () => {
     title: {
       text: "Olá, Engenheiro! Antes de tudo...",
       wordBreak: "Engenheiro!",
-      highlightTexts: { text: "Engenheiro!", color: "green", bold: 900 },
+      highlightTexts: { text: "Engenheiro!", color: "green", fontFamily: "Montserrat-Regular" },
     },
     subtitle1: "Um cadastro deve ser realizado!",
     subtitle2: "Precisamos das suas informações, nos diga seu...",
@@ -77,7 +78,6 @@ const EnginnerRegister: React.FC = () => {
           <SubtitleText
             align="justify"
             color="black"
-            bold={700}
             letterSpacing={1}
             lineHeight={20}
             size={16.5}
@@ -88,7 +88,6 @@ const EnginnerRegister: React.FC = () => {
           <SubtitleText
             align="justify"
             color="black"
-            bold={300}
             letterSpacing={1}
             lineHeight={20}
             size={16.5}
@@ -156,7 +155,6 @@ const EnginnerRegister: React.FC = () => {
             isActive={true}
             title={button.button.text}
             color="white"
-            bold={700}
             onPress={button.button.onPress}
           />
         </ContainerComponent>

@@ -1,12 +1,16 @@
 import { NavigationProp, useNavigation } from '@react-navigation/native';
 
 type RootStackParamList = {
-  [key: string]: undefined; // ou defina os parâmetros esperados para cada rota
+  [key: string]: undefined; // Defina os parâmetros esperados para cada rota
 };
 
-export const navigateToPage = (pageName: string) => {
+// Cria um hook customizado para navegar
+export const useNavigateToPage = (): ((pageName: string) => void) => {
   const navigation = useNavigation<NavigationProp<RootStackParamList>>();
-  return () => {
+
+  const navigate = (pageName: string): void => {
     navigation.navigate(pageName);
   };
+
+  return navigate;
 };

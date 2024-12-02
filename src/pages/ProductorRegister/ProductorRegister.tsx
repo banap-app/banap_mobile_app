@@ -6,9 +6,10 @@ import ContainerComponent from "src/components/Container/Container";
 import FormInput from "src/components/FormInput/FormInput";
 import SubtitleText from "src/components/SubTitleText/SubTitleText";
 import { TitleText } from "src/components/TitleText/TitleText";
-import { navigateToPage } from "src/utils/navigateToPage";
+import { useNavigateToPage } from "src/utils/navigateToPage";
 
 const ProductorRegister: React.FC = () => {
+  const navigateToPage = useNavigateToPage();
   return (
     <React.Fragment>
       <ContainerComponent display="flex" alignItems="center" justifyContent="start"  width="100%" height="80%">
@@ -25,20 +26,20 @@ const ProductorRegister: React.FC = () => {
             color="black"
             text="Olá, Produtor!
             Antes de tudo..."
+            fontFamily="Montserrat-Bold"
             align="justify"
-            bold={900}
-            letterSpacing={1.2}
-            size={32.3}
-            margins={[0, 0, 10, 0]}
+            letterSpacing={1}
+            size={28}
+            margins={[0, 0, 8, 0]}
             lineBreak={true}
             breakAfter="Produtor!"
-            highlightTexts={[{ text: "Produtor!", color: "green", bold: 900 }]}
+            highlightTexts={[{ text: "Produtor!", color: "green", fontFamily:"Montserrat-Bold"}]}
           />
 
           <SubtitleText
             align="left"
             color="black"
-            bold={700}
+            fontFamily="Montserrat-SemiBold"
             letterSpacing={1}
             lineHeight={20}
             size={16.5}
@@ -49,7 +50,7 @@ const ProductorRegister: React.FC = () => {
           <SubtitleText
             align="justify"
             color="black"
-            bold={300}
+            
             letterSpacing={1}
             lineHeight={18}
             size={16.5}
@@ -60,11 +61,10 @@ const ProductorRegister: React.FC = () => {
 
         <ContainerComponent
           width="100%"
-          height="55%"
+          height="60%"
           display="flex"
           flexDirection="column"
-          padding={[0, 5, 0, 5]}
-         
+          padding={[30, 5, 0, 5]}
           alignItems="start"
           justifyContent="space-evenly"
           
@@ -73,26 +73,27 @@ const ProductorRegister: React.FC = () => {
             placeholder="Exemplo"
             title="Nome"
             titleAlign="left"
-            titleSize={25}
+            titleSize={22}
             inputHeight="auto"
           />
           <FormInput
             placeholder="exemplo@exemplo.com"
             title="Email"
             titleAlign="left"
-            titleSize={25}
+            titleSize={22}
             inputHeight="auto"
           />
           <FormInput
             placeholder="aa"
             title="Senha"
             titleAlign="left"
-            titleSize={25}
+            titleSize={22}
+            
             inputHeight="auto"
           />
         </ContainerComponent>
 
-        <ContainerComponent display="flex" alignItems="center" justifyContent="center" height="37.5%">
+        <ContainerComponent display="flex" alignItems="center" justifyContent="center" height="32%">
           <Button
             backgroundColor="green"
             width={265}
@@ -102,8 +103,7 @@ const ProductorRegister: React.FC = () => {
             isActive={true}
             title="Cadastrar"
             color="white"
-            bold={700}
-            onPress={navigateToPage("LoginPage")}
+            onPress={()=>navigateToPage("LoginPage")}
           />
         </ContainerComponent>
       </ContainerComponent>

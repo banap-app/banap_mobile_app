@@ -4,9 +4,10 @@ import ContainerComponent from "src/components/Container/Container";
 import FormInput from "src/components/FormInput/FormInput";
 import SubtitleText from "src/components/SubTitleText/SubTitleText";
 import { TitleText } from "src/components/TitleText/TitleText";
-import { navigateToPage } from "src/utils/navigateToPage";
+import { useNavigateToPage } from "src/utils/navigateToPage";
 
 export const RegisterProperty: React.FC = () => {
+  const navigateToPage = useNavigateToPage();
   return (
     <React.Fragment>
       <ContainerComponent
@@ -30,13 +31,12 @@ export const RegisterProperty: React.FC = () => {
             text="Cadastrando sua
 propriedade..."
             align="justify"
-            bold={900}
             letterSpacing={1.2}
             size={32.5}
             margins={[0, 0, 10, 0]}
             lineBreak={true}
             breakAfter="Produtor!"
-            highlightTexts={[{ text: "propriedade...", color: "green", bold: 900 }]}
+            highlightTexts={[{ text: "propriedade...", color: "green", fontFamily: "Montserrat-Regular" }]}
           />
 
         
@@ -44,7 +44,6 @@ propriedade..."
           <SubtitleText
             align="justify"
             color="black"
-            bold={300}
             letterSpacing={1}
             lineHeight={18}
             size={16}
@@ -87,8 +86,7 @@ propriedade..."
             isActive={true}
             title="Cadastrar"
             color="white"
-            bold={700}
-            onPress={navigateToPage("InitialProductorPage")}
+            onPress={()=>navigateToPage("InitialProductorPage")}
           />
         </ContainerComponent>
       </ContainerComponent>

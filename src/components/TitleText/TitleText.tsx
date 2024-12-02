@@ -7,28 +7,28 @@ export type TitleProps = {
   text: string;
   size?: number;
   color?: string;
-  bold?: number;
   letterSpacing?: number;
   align?: "left" | "center" | "right" | "justify";
   wordBreakMode?: "normal" | "break-word" | "keep-all";
   margins?: [number?, number?, number?, number?];
   lineBreak?: boolean;
   breakAfter?: string;
-  highlightTexts?: { text: string; color: string; bold: number }[]; // Novo tipo de dado para múltiplos textos destacados
+  highlightTexts?: { text: string; color: string; fontFamily: MontserratFont }[]; 
+  fontFamily?: MontserratFont;
 };
 
 export const TitleText: React.FC<TitleProps> = ({
   text,
   size,
   color,
-  bold,
   letterSpacing,
   align,
   wordBreakMode,
   margins = [],
   lineBreak,
   breakAfter,
-  highlightTexts = [], // Novo parâmetro highlightTexts
+  highlightTexts = [], 
+  fontFamily
 }) => {
   const [marginTop = 0, marginRight = 0, marginBottom = 0, marginLeft = 0] = margins;
 
@@ -49,12 +49,12 @@ export const TitleText: React.FC<TitleProps> = ({
   const formattedText = getFormattedText(text);
 
   // Função para separar o texto com destaque (highlightTexts)
-  const getHighlightedText = (text: string, highlightTexts: { text: string; color: string; bold: number }[]) => {
+  const getHighlightedText = (text: string, highlightTexts: { text: string; color: string; fontFamily: MontserratFont }[]) => {
     if (highlightTexts.length === 0) return text; // Se não houver nada para destacar, retorna o texto original
 
     let updatedText: (string | JSX.Element)[] = [text]; // Agora usamos um array para armazenar strings e elementos React
 
-    highlightTexts.forEach(({ text: highlightText, color, bold }, index) => {
+    highlightTexts.forEach(({ text: highlightText, color, fontFamily }, index) => {
       const newUpdatedText: (string | JSX.Element)[] = [];
       updatedText.forEach((part, i) => {
         if (typeof part === "string") {
@@ -62,7 +62,7 @@ export const TitleText: React.FC<TitleProps> = ({
           newUpdatedText.push(
             ...parts.map((part, i) =>
               part.toLowerCase() === highlightText.toLowerCase() ? (
-                <TitleSpanStyled key={i} bold={bold} color={color}>
+                <TitleSpanStyled key={i} fontFamily={fontFamily} color={color}>
                   {part}
                 </TitleSpanStyled>
               ) : (
@@ -84,7 +84,6 @@ export const TitleText: React.FC<TitleProps> = ({
     <TitleTextStyled
       size={size}
       color={color}
-      bold={bold}
       letterSpacing={letterSpacing}
       align={align}
       wordBreakMode={wordBreakMode}
@@ -92,6 +91,7 @@ export const TitleText: React.FC<TitleProps> = ({
       marginRight={marginRight}
       marginBottom={marginBottom}
       marginLeft={marginLeft}
+      fontFamily={fontFamily}
     >
       {/* Agora o getHighlightedText retorna um array de partes de texto com componentes Text e TitleSpanStyled */}
       {getHighlightedText(formattedText, highlightTexts)}

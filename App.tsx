@@ -1,13 +1,17 @@
 import React from 'react';
-import ContainerComponent from './src/components/Container/Container';
-import AppNavigator from './src/AppNavigator'; // Certifique-se de ajustar o caminho conforme necessário
-import Login from './src/pages/Login/Login';
+import AppNavigator from './src/AppNavigator'; 
+import { useFonts } from 'expo-font';
+import { Provider } from 'react-redux';
+import store from './src/redux/store/store'
+import useMontserratFonts from 'src/hooks/useMontserrat';
+
 
 const App = () => {
+  const { fontsLoaded } = useMontserratFonts();
   return (
- 
-      <AppNavigator />
-    
+    <Provider store={store}>
+    <AppNavigator />  
+  </Provider>
   );
 }
 

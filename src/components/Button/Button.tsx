@@ -8,12 +8,19 @@ export type ButtonProps = {
   title?: string;
   onPress?: () => any | void;
   width: number;
-  height: number;
+  height: number | string;
   fontSize?: number;
   borderRadius: number;
   color: string;
   border?: string;
-  bold?: number;
+ fontFamily?: MontserratFont
+ align?: string
+  icon?: React.ReactNode
+  display?: 'flex' | 'inline'
+  justify?: 'center' | 'flex-start' | 'flex-end' | 'space-between' | 'space-around' | 'space-evenly'
+  alignItems?: 'center' | 'flex-start' | 'flex-end' | 'space-between' | 'space-evenly' | 'space-around'
+  gap?: number
+
 } & TouchableOpacityProps;
 
 export const Button = ({
@@ -24,10 +31,16 @@ export const Button = ({
   width,
   isActive,
   onPress,
+  align,
   title,
   color,
   border,
-  bold
+  fontFamily,
+  icon,
+  display,
+  justify,
+  alignItems,
+  gap
 }: ButtonProps) => {
   const handlePress = () => {
     if (onPress) {
@@ -40,14 +53,18 @@ export const Button = ({
       onPress={handlePress}
       backgroundColor={backgroundColor}
       width={width}
-    
+      display={display}
+      justify={justify}
+      gap={gap}
+      alignItems={alignItems}
       height={height}
       borderRadius={borderRadius}
       isActive={isActive}
       border={border}
     
     >
-      <ButtonText color={color}  fontSize={fontSize} bold={bold}>{title}</ButtonText>
+      {icon}
+      {title && <ButtonText color={color} align={align} fontSize={fontSize} fontFamily={fontFamily}>{title}</ButtonText>}
     </ButtonStyled>
   );
 };

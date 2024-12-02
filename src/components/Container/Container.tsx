@@ -14,13 +14,20 @@ export type ContainerProps = {
   flexAll?: number;
   width?: number | string;
   height?: number | string;
+  borderRadius?: number;
   flexDirection?: string;
+  flexWrap?: string;
+  borderColor?: string;
+  borderWidth?: number;
+  borderStyle?: string;
+  overflow?: string;
 };
 
 const ContainerComponent: React.FC<ContainerProps> = ({
   children,
   padding = [0, 0, 0, 0],
   onPress,
+  borderRadius = 0,
   margin = [0, 0, 0, 0],
   ...props
 }) => {
@@ -42,6 +49,7 @@ const ContainerComponent: React.FC<ContainerProps> = ({
       marginTop={marginTop}
       marginRight={marginRight}
       marginBottom={marginBottom}
+      borderRadius={borderRadius}
       marginLeft={marginLeft}
       {...props}
     >

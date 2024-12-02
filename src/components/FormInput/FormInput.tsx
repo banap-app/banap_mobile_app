@@ -18,6 +18,7 @@ export type FormInputProps = {
   titleAlign?: "left" | "center" | "right" | "justify" | undefined;
   titleSize?: number;
   gap?: number;
+  fontFamily?:MontserratFont
 };
 
 const FormInput: React.FC<FormInputProps> = ({
@@ -30,7 +31,8 @@ const FormInput: React.FC<FormInputProps> = ({
   lineHeight = 1,
   titleAlign,
   titleSize = 16,
-  gap = 12
+  gap = 12,
+  fontFamily
 }: FormInputProps) => {
   return (
     <ContainerComponent
@@ -40,7 +42,7 @@ const FormInput: React.FC<FormInputProps> = ({
       justifyContent="start"
       gap={gap}
     >
-      <TitleText text={title} align={titleAlign} size={titleSize} />
+      <TitleText text={title} align={titleAlign} size={titleSize} fontFamily={fontFamily}/>
       <StyledTextInput
         onChangeText={onChange}
         inputWidth={inputWidth}

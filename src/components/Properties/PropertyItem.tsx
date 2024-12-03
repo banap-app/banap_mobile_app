@@ -13,7 +13,7 @@ type PropertyItem = {
 
 type PropertyListProps = {
   data: PropertyItem[] | null; // Pode ser null
-  onPressItem?: (id: string) => void;
+  onPressItem?: (pageName: string, params: { fieldId: string }) => void;
 };
 
 export const PropertyList: React.FC<PropertyListProps> = ({
@@ -37,7 +37,7 @@ export const PropertyList: React.FC<PropertyListProps> = ({
     }
 
     return (
-      <ItemContainer onPress={() => onPressItem && onPressItem(item.id)}>
+      <ItemContainer onPress={() => onPressItem && onPressItem("FieldProductorDetails", {fieldId: item.id})}>
         <ItemImage source={{ uri: item.imageUrl }} resizeMode="cover" />
         <SubtitleText align="center" color="white" backgroundColor="green" size={14} letterSpacing={1} lineHeight={26}>
           {item.name}

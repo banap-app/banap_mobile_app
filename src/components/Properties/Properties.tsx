@@ -6,6 +6,7 @@ import AddButton from "../AddButton";
 import AddIcon from "../AddIcon";
 import { PropertyList } from "./PropertyItem";
 import { ScrollViewContainer } from "../Container/ScrollViewContainer";
+import { useNavigateToPage } from "src/utils/navigateToPage";
 
 type PropertyItem = {
   id: string;
@@ -17,9 +18,9 @@ type PropertiesProps = {
   properties: PropertyItem[] | null;
 };
 
-const handle = () => console.log("aa");
 
 const Properties: React.FC<PropertiesProps> = ({ properties }: PropertiesProps) => {
+  const navigateToPage = useNavigateToPage();
   return (
     <ContainerComponent
       alignItems="flex-start"
@@ -46,7 +47,7 @@ const Properties: React.FC<PropertiesProps> = ({ properties }: PropertiesProps) 
         height="55%"
         justifyContent="space-around"
       >
-        <PropertyList data={properties} onPressItem={handle} />
+        <PropertyList data={properties} onPressItem={navigateToPage} />
       </ScrollViewContainer>
 
       <ContainerComponent

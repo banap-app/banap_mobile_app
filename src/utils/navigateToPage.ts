@@ -1,15 +1,16 @@
 import { NavigationProp, useNavigation } from '@react-navigation/native';
 
+// Permite qualquer chave de string com parâmetros opcionais
 type RootStackParamList = {
-  [key: string]: undefined; // Defina os parâmetros esperados para cada rota
+  [key: string]: object | undefined;
 };
 
-// Cria um hook customizado para navegar
-export const useNavigateToPage = (): ((pageName: string) => void) => {
+// Cria um hook customizado para navegar com rotas e parâmetros dinâmicos
+export const useNavigateToPage = (): ((pageName: string, params?: object) => void) => {
   const navigation = useNavigation<NavigationProp<RootStackParamList>>();
 
-  const navigate = (pageName: string): void => {
-    navigation.navigate(pageName);
+  const navigate = (pageName: string, params?: object): void => {
+    navigation.navigate(pageName, params);
   };
 
   return navigate;

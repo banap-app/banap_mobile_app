@@ -71,6 +71,7 @@ const Properties: React.FC<PropertiesProps> = ({ properties }: PropertiesProps) 
           fontFamily="Montserrat-Medium"
           icon={<AddIcon position="relative" color="white" size={18} />}
           fontSize={16}
+          onPress={()=>navigateToPage("RegisterProperty")}
         />
       </ContainerComponent>
     </ContainerComponent>

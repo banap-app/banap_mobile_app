@@ -6,6 +6,7 @@ declare module '@assets' {
         'productor': any;
         'Enginner': any;
         'Banap': any;
+        'Analyst': any;
         "LinesAppBar": any;
     };
 

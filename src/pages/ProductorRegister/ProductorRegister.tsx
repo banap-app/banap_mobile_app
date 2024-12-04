@@ -41,7 +41,17 @@ const ProductorRegister: React.FC = () => {
         { cancelable: false }
       )
   } catch (error) {
-    Alert.alert("Erro", "Falha ao criar o usuário. Tente novamente.");
+    Alert.alert(
+      "Erro",
+      "Erro ao criar!",
+      [
+        {
+          text: "OK",
+          onPress: () => navigateToPage("LoginPage"),
+        },
+      ],
+      { cancelable: false }
+    )
     console.error('Error creating user:', error);
   }
 }

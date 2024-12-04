@@ -1,3 +1,4 @@
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import React from "react";
 import { Button } from "src/components/Button/Button";
 import ContainerComponent from "src/components/Container/Container";
@@ -8,6 +9,7 @@ import { useNavigateToPage } from "src/utils/navigateToPage";
 
 export const InitialProductorPage: React.FC = () => {
   const navigateToPage = useNavigateToPage();
+  console.log(AsyncStorage.getItem("authToken"))
   const hasProperty = true;
   const data = [
     { id: "1", name: "Item 1", imageUrl: "https://via.placeholder.com/150" },

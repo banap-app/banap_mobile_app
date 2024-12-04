@@ -1,5 +1,5 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "src/components/Button/Button";
 import ContainerComponent from "src/components/Container/Container";
 import HomeCards from "src/components/HomeCards";
@@ -9,12 +9,16 @@ import { useNavigateToPage } from "src/utils/navigateToPage";
 
 export const InitialProductorPage: React.FC = () => {
   const navigateToPage = useNavigateToPage();
-  console.log(AsyncStorage.getItem("authToken"))
+  const [property, setProperty] = useState("")
+  const [fields, setFields] = useState()
+
+  console.log("TOKEN", AsyncStorage.getItem("authToken"))
+
   const hasProperty = true;
   const data = [
-    { id: "1", name: "Item 1", imageUrl: "https://via.placeholder.com/150" },
-    { id: "2", name: "Item 2", imageUrl: "https://via.placeholder.com/150" },
-    { id: "3", name: "Item 3", imageUrl: "https://via.placeholder.com/150" },
+    { id: "1", name: "Talhão 1", imageUrl: "https://via.placeholder.com/150" },
+    { id: "2", name: "Talhão 2", imageUrl: "https://via.placeholder.com/150" },
+    { id: "3", name: "Talhão 3", imageUrl: "https://via.placeholder.com/150" },
   ];
 
   return (

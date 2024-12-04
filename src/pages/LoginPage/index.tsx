@@ -17,16 +17,17 @@ export const LoginPage: React.FC = () => {
 
   const handleLogin = async() =>{
     console.log("handle")
-    const api = createApi("http://3.80.254.197:8192")
+    const api = createApi("http://52.205.55.118:5550")
     try {
       const response = await api({
         method: 'post',
-        route: '/api/auth',
+        route: '/user/login',
         data: {
           email,
           password
         },
       });
+      console.log(response?.token)
       const token = response?.token;
     if (token) {
       await AsyncStorage.setItem('authToken', token);

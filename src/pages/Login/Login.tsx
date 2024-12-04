@@ -46,7 +46,7 @@ const Login: React.FC = () => {
           alignItems="center"
         >
          <Button backgroundColor="green" title="Cadastrar-se" borderRadius={10} color="white" height={41.5} onPress={()=>navigateToPage('Register')} width={250.5} isActive={true}/>   
-         <Button backgroundColor="white" border="1px green" title="Logar" onPress={()=>navigateToPage('Register')} borderRadius={10} color="green" height={41.5} width={250.5} isActive={true}/>   
+         <Button backgroundColor="white" border="1px green" title="Logar" onPress={()=>navigateToPage('LoginPage')} borderRadius={10} color="green" height={41.5} width={250.5} isActive={true}/>   
         </ContainerComponent>
 
     </React.Fragment>

@@ -4,6 +4,7 @@ import ContainerComponent from "src/components/Container/Container";
 import { useNavigateToPage } from "src/utils/navigateToPage";
 import { useRoute, RouteProp } from "@react-navigation/native";
 import { TitleText } from "src/components/TitleText/TitleText";
+import AddIcon from "../../../components/AddIcon";
 
 type RootStackParamList = {
   FieldProductorDetails: { fieldId: string }; // Define o tipo esperado
@@ -31,12 +32,12 @@ const FieldProductorDetails: React.FC = () => {
           height="auto"
           padding={[0, 0, 0, 5]}
           display="flex"
-          alignItems="start"
-          justifyContent="space-around"
+          alignItems="center"
+          justifyContent="center"
         >
           <TitleText
             color="black"
-            text={`Detalhes do Talhão: ${fieldId}`} // Exibindo o fieldId
+            text={`Talhão ${fieldId}`} // Exibindo o fieldId
             align="left"
             fontFamily="Montserrat-Bold"
             letterSpacing={1}
@@ -60,16 +61,22 @@ const FieldProductorDetails: React.FC = () => {
           height="31.5%"
         >
           <Button
-            backgroundColor="green"
-            width={265}
-            borderRadius={12}
-            fontSize={17}
-            height={45}
-            isActive={true}
-            title="Continuar"
-            color="white"
-            onPress={() => navigateToPage("FieldProductorDetails")}
-          />
+          display="flex"
+          alignItems="center"
+          justify="space-between"
+          gap={12}
+          backgroundColor="green"
+          borderRadius={14}
+          color="white"
+          height={50}
+          width={200}
+          isActive={true}
+          title="Nova análise"
+          fontFamily="Montserrat-Medium"
+          icon={<AddIcon position="relative" color="white" size={18} />}
+          fontSize={16}
+          onPress={()=>navigateToPage("StepOne")}
+        />
         </ContainerComponent>
       </ContainerComponent>
     </React.Fragment>

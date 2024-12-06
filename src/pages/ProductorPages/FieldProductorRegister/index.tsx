@@ -37,6 +37,7 @@ const FieldProductorRegister: React.FC = () => {
       console.log("Pontos selecionados:", mapPoints)
       setStep(3)
     } else if (step === 3) {
+      navigateToPage("InitialProductorPage")
     }
   }
 

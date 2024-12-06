@@ -11,9 +11,6 @@ export const InitialProductorPage: React.FC = () => {
   const navigateToPage = useNavigateToPage();
   const [property, setProperty] = useState("")
   const [fields, setFields] = useState()
-
-  console.log("TOKEN", AsyncStorage.getItem("authToken"))
-
   const hasProperty = true;
   const data = [
     { id: "1", name: "Talhão 1", imageUrl: "https://via.placeholder.com/150" },
